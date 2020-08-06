@@ -13,7 +13,18 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>My Clock</title>
-   
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date(); 
+            date = a.toLocaleDateString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + "<br>on " + date;
+        }, 1000);
+    </script>
 </head>
 
 <body>
@@ -41,7 +52,7 @@
 
     <div class="container my-4">
         <div class="jumbotron">
-            <h1 class="display-4"><img id="imag" src="india.png"> Indian Standard time: <span id="time"></span></h1>
+            <h1 class="display-4"><img id="imag" src="images/india.png"> Indian Standard time: <span id="time"></span></h1>
             <p class="lead">We have got you covered. This is a simple real time clock which uses javascript functions to update live time from your device.</p>
             
             
